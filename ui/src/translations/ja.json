@@ -1036,7 +1036,6 @@
       }
     },
     "output": "Output",
-    "outputs": "出力",
     "override": {
       "details": "以前のflowはRevisionsタブから復元できます。",
       "title": "現在のflowを上書きしようとしています"
