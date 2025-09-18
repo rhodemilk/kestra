@@ -1,19 +1,19 @@
 <template>
-    <sidebar-menu
+    <SidebarMenu
         ref="sideBarRef"
         data-component="FILENAME_PLACEHOLDER"
         id="side-menu"
-        :menu="localMenu"
+        :menu
         @update:collapsed="onToggleCollapse"
         width="268px"
         :collapsed="collapsed"
-        link-component-name="LeftMenuLink"
-        hide-toggle
+        linkComponentName="LeftMenuLink"
+        hideToggle
     >
         <template #header>
             <el-button @click="collapsed = onToggleCollapse(!collapsed)" class="collapseButton" :size="collapsed ? 'small':undefined">
-                <chevron-right v-if="collapsed" />
-                <chevron-left v-else />
+                <ChevronRight v-if="collapsed" />
+                <ChevronLeft v-else />
             </el-button>
             <div class="logo">
                 <component :is="props.showLink ? 'router-link' : 'div'" :to="{name: 'home'}">
@@ -26,14 +26,12 @@
         <template #footer>
             <slot name="footer" />
         </template>
-    </sidebar-menu>
+    </SidebarMenu>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import {
-        watch,
         onUpdated,
-        onMounted,
         ref,
         computed,
         shallowRef, h
@@ -50,34 +48,20 @@
     import Environment from "./Environment.vue";
     import BookmarkLinkList from "./BookmarkLinkList.vue";
     import {useBookmarksStore} from "../../stores/bookmarks";
+    import type {MenuItem} from "override/components/useLeftMenu.js";
 
 
-    const props = defineProps({
-        generateMenu: {
-            type: Function,
-            required: true
-        },
-        showLink: {
-            type: Boolean,
-            default: true
-        }
+    const props = withDefaults(defineProps<{
+        menu: MenuItem[],
+        showLink: boolean
+    }>(), {
+        showLink: true
     })
 
     const $emit = defineEmits(["menu-collapse"])
 
     const $route = useRoute()
-    const {locale, t} = useI18n({useScope: "global"});
-
-    function flattenMenu(menu) {
-        return menu.reduce((acc, item) => {
-            if (item.child) {
-                acc.push(...flattenMenu(item.child));
-            }
-
-            acc.push(item);
-            return acc;
-        }, []);
-    }
+    const {t} = useI18n({useScope: "global"});
 
     function onToggleCollapse(folded) {
         collapsed.value = folded;
@@ -136,43 +120,11 @@
                     component: () => h(BookmarkLinkList, {pages: bookmarksStore.pages}),
                 }]
             }] : []),
-            ...disabledCurrentRoute(props.generateMenu())
+            ...(props.menu ? disabledCurrentRoute(props.menu) : [])
         ];
     });
 
-
-    watch(locale, () => {
-        localMenu.value = menu.value;
-    }, {deep: true});
-
-    /**
-     * @type {import("vue").Ref<typeof import('vue-sidebar-menu').SidebarMenu>}
-     */
-    const sideBarRef = ref(null);
-
-    watch(menu, (newVal, oldVal) => {
-              // Check if the active menu item has changed, if yes then update the menu
-              if (JSON.stringify(flattenMenu(newVal).map(e => e.class?.includes("vsm--link_active") ?? false)) !==
-                  JSON.stringify(flattenMenu(oldVal).map(e => e.class?.includes("vsm--link_active") ?? false))) {
-                  localMenu.value = newVal;
-                  sideBarRef.value?.$el.querySelectorAll(".vsm--item span").forEach(e => {
-                      //empty icon name on mouseover
-                      e.setAttribute("title", "")
-                  });
-              }
-          },
-          {
-              flush: "post",
-              deep: true
-          });
-
     const collapsed = ref(localStorage.getItem("menuCollapsed") === "true")
-    const localMenu = ref([])
-
-
-    onMounted(() => {
-        localMenu.value = menu.value;
-    })
 </script>
 
 <style lang="scss">
@@ -238,6 +190,7 @@
             background-color: transparent !important;
             padding-bottom: 15px;
             width: 30px !important;
+            z-index: 1;
 
             svg {
                 position: relative;
@@ -268,7 +221,7 @@
             box-shadow: none;
 
             &_active, body &_active:hover {
-                background-color: var(--ks-button-background-primary);
+                background-color: var(--ks-button-background-primary) !important;
                 color: var(--ks-button-content-primary);
                 font-weight: normal;
             }
@@ -336,6 +289,12 @@
 
         .vsm--title span:first-child{
             flex-grow: 0;
+        }
+
+        .vsm--link_open.vsm--link_active {
+            .vsm--title, .vsm--icon {
+                color: var(--ks-button-content-primary);
+            }
         }
 
         .vsm--arrow_default{
@@ -406,6 +365,21 @@
             bottom: 0 !important;
             margin-left: 5px;
         }
-    }
 
+        .vsm--item {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 1.25rem;
+                z-index: 5;
+                background: linear-gradient(to top, var(--ks-background-left-menu), transparent);
+                opacity: 0.18;
+            }
+        }
+    }
 </style>
