@@ -1036,7 +1036,6 @@
       }
     },
     "output": "Output",
-    "outputs": "Outputs",
     "override": {
       "details": "Il flow precedente può essere ripristinato dalla scheda Revisions.",
       "title": "Stai per sovrascrivere il flow corrente"
