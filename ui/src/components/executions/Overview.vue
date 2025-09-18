@@ -185,7 +185,7 @@
         <div v-if="execution.outputs" class="my-5">
             <h5>{{ $t("flow outputs") }}</h5>
             <KestraCascader
-                id="outputs"
+                id="flow_outputs"
                 :options="transform(execution.outputs)"
                 :execution
                 class="overflow-auto"
