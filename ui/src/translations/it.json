@@ -668,6 +668,7 @@
     "flow-no-dependencies": "Il tuo flow non ha dipendenze",
     "flow_export": "Esporta flow",
     "flow_only": "Disponibile solo nella scheda Flow.",
+    "flow_outputs": "Flow Outputs",
     "flows": "Flows",
     "flows deleted": "<code>{count}</code> Flow eliminati",
     "flows disabled": "<code>{count}</code> Flow disabilitati",
@@ -1037,7 +1038,6 @@
       }
     },
     "output": "Output",
-    "outputs": "Outputs",
     "override": {
       "details": "Il flow precedente può essere ripristinato dalla scheda Revisions.",
       "title": "Stai per sovrascrivere il flow corrente"
