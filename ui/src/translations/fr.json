@@ -668,6 +668,7 @@
     "flow-no-dependencies": "Votre flow n'a pas de dépendances.",
     "flow_export": "Exporter le flow",
     "flow_only": "Disponible uniquement sur l'onglet Flow.",
+    "flow_outputs": "Flow Outputs",
     "flows": "Flows",
     "flows deleted": "<code>{count}</code> Flow(s) supprimé(s)",
     "flows disabled": "<code>{count}</code> Flow(s) désactivé(s)",
@@ -1037,7 +1038,6 @@
       }
     },
     "output": "Sortie",
-    "outputs": "Sorties",
     "override": {
       "details": "Le flow précédent peut être restauré depuis l'onglet Revisions.",
       "title": "Vous allez écraser le flow actuel"

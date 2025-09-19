@@ -668,6 +668,7 @@
     "flow-no-dependencies": "Ваш flow не имеет зависимостей",
     "flow_export": "Экспорт flow",
     "flow_only": "Доступно только на вкладке Flow.",
+    "flow_outputs": "Flow Outputs",
     "flows": "Flows",
     "flows deleted": "<code>{count}</code> Flow(ы) удалены",
     "flows disabled": "<code>{count}</code> Flow(ы) отключены",
@@ -1037,7 +1038,6 @@
       }
     },
     "output": "Вывод",
-    "outputs": "Выводы",
     "override": {
       "details": "Предыдущий flow можно восстановить на вкладке Revisions.",
       "title": "Вы собираетесь перезаписать текущий flow"
