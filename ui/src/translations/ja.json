@@ -668,6 +668,7 @@
     "flow-no-dependencies": "あなたのflowには依存関係がありません",
     "flow_export": "フローをエクスポート",
     "flow_only": "Flowタブでのみ利用可能です。",
+    "flow_outputs": "Flow Outputs",
     "flows": "Flows",
     "flows deleted": "<code>{count}</code>件のflowが削除されました",
     "flows disabled": "<code>{count}</code>件のflowが無効化されました",
@@ -1037,7 +1038,6 @@
       }
     },
     "output": "Output",
-    "outputs": "出力",
     "override": {
       "details": "以前のflowはRevisionsタブから復元できます。",
       "title": "現在のflowを上書きしようとしています"
