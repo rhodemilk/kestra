@@ -668,6 +668,7 @@
     "flow-no-dependencies": "귀하의 flow에는 종속성이 없습니다.",
     "flow_export": "flow 내보내기",
     "flow_only": "Flow 탭에서만 사용 가능합니다.",
+    "flow_outputs": "Flow Outputs",
     "flows": "Flows",
     "flows deleted": "<code>{count}</code> 개의 flow가 삭제되었습니다",
     "flows disabled": "<code>{count}</code> 개의 flow가 비활성화되었습니다",
@@ -1037,7 +1038,6 @@
       }
     },
     "output": "Output",
-    "outputs": "Outputs",
     "override": {
       "details": "이전 flow는 Revisions 탭에서 복원할 수 있습니다.",
       "title": "현재 Flow를 덮어쓸 예정입니다."
