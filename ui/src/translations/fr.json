@@ -1037,7 +1037,6 @@
       }
     },
     "output": "Sortie",
-    "outputs": "Sorties",
     "override": {
       "details": "Le flow précédent peut être restauré depuis l'onglet Revisions.",
       "title": "Vous allez écraser le flow actuel"

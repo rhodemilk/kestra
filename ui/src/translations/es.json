@@ -1037,7 +1037,6 @@
       }
     },
     "output": "Salida",
-    "outputs": "Salidas",
     "override": {
       "details": "El flow anterior se puede restaurar desde la pestaña de Revisions.",
       "title": "Vas a sobrescribir el flujo actual"

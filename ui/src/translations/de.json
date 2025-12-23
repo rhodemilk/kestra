@@ -1037,7 +1037,6 @@
       }
     },
     "output": "Output",
-    "outputs": "Outputs",
     "override": {
       "details": "Der vorherige flow kann über die Registerkarte \"Revisions\" wiederhergestellt werden.",
       "title": "Sie werden den aktuellen Flow überschreiben"

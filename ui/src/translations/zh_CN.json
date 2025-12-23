@@ -1037,7 +1037,6 @@
       }
     },
     "output": "输出",
-    "outputs": "输出",
     "override": {
       "details": "先前的flow可以从Revisions标签页恢复。",
       "title": "你将覆盖当前流程"
