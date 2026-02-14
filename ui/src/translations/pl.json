@@ -1037,7 +1037,6 @@
       }
     },
     "output": "Wyjście",
-    "outputs": "Wyjścia",
     "override": {
       "details": "Poprzedni flow można przywrócić z karty Revisions.",
       "title": "Zamierzasz nadpisać bieżący flow"
