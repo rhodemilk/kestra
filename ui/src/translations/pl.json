@@ -668,6 +668,7 @@
     "flow-no-dependencies": "Twój flow nie ma żadnych zależności",
     "flow_export": "Eksportuj flow",
     "flow_only": "Dostępne tylko na zakładce Flow.",
+    "flow_outputs": "Flow Outputs",
     "flows": "Flows",
     "flows deleted": "<code>{count}</code> Flow(s) usunięte",
     "flows disabled": "<code>{count}</code> Flow(s) wyłączone",
@@ -1037,7 +1038,6 @@
       }
     },
     "output": "Wyjście",
-    "outputs": "Wyjścia",
     "override": {
       "details": "Poprzedni flow można przywrócić z karty Revisions.",
       "title": "Zamierzasz nadpisać bieżący flow"
